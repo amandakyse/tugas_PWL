@@ -9,18 +9,16 @@ class JadwalSeeder extends Seeder
 {
     public function run(): void
     {
-        Jadwal::create([
-            'mata_kuliah_id' => 1,
-            'hari' => 'Senin',
-            'jam' => '08:00',
-            'ruangan' => 'Lab 1'
-        ]);
+        $hari = ['Senin','Selasa','Rabu','Kamis','Jumat'];
 
-        Jadwal::create([
-            'mata_kuliah_id' => 2,
-            'hari' => 'Selasa',
-            'jam' => '10:00',
-            'ruangan' => 'Lab 2'
-        ]);
+        for($i=1; $i<=15; $i++)
+        {
+            Jadwal::create([
+                'mata_kuliah_id' => rand(1,10),
+                'hari' => $hari[array_rand($hari)],
+                'jam' => rand(7,15).':00',
+                'ruangan' => 'Lab '.rand(1,5),
+            ]);
+        }
     }
 }

@@ -9,16 +9,13 @@ class MahasiswaSeeder extends Seeder
 {
     public function run(): void
     {
-        Mahasiswa::create([
-            'nama' => 'Amanda',
-            'nim' => '2311001',
-            'email' => 'amanda@gmail.com'
-        ]);
-
-        Mahasiswa::create([
-            'nama' => 'Nadia',
-            'nim' => '2311002',
-            'email' => 'nadia@gmail.com'
-        ]);
+        for($i=1; $i<=20; $i++)
+        {
+            Mahasiswa::create([
+                'nama' => fake()->name(),
+                'nim' => '2311'.str_pad($i,3,'0',STR_PAD_LEFT),
+                'email' => fake()->unique()->safeEmail(),
+            ]);
+        }
     }
 }

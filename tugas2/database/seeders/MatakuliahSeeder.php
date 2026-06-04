@@ -9,16 +9,26 @@ class MataKuliahSeeder extends Seeder
 {
     public function run(): void
     {
-        MataKuliah::create([
-            'dosen_id' => 1,
-            'nama_mk' => 'Pemrograman Web',
-            'sks' => 3
-        ]);
+        $mk = [
+            'Pemrograman Web',
+            'Basis Data',
+            'Jaringan Komputer',
+            'Sistem Operasi',
+            'Struktur Data',
+            'Kecerdasan Buatan',
+            'Algoritma',
+            'Keamanan Jaringan',
+            'Pemrograman Mobile',
+            'Data Mining'
+        ];
 
-        MataKuliah::create([
-            'dosen_id' => 2,
-            'nama_mk' => 'Basis Data',
-            'sks' => 3
-        ]);
+        foreach($mk as $index => $nama)
+        {
+            MataKuliah::create([
+                'dosen_id' => rand(1,10),
+                'nama_mk' => $nama,
+                'sks' => rand(2,4),
+            ]);
+        }
     }
 }

@@ -3,22 +3,19 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\Krs;
+use App\Models\KRS;
 
 class KrsSeeder extends Seeder
 {
     public function run(): void
     {
-        Krs::create([
-            'mahasiswa_id' => 1,
-            'jadwal_id' => 1,
-            'semester' => '4'
-        ]);
-
-        Krs::create([
-            'mahasiswa_id' => 2,
-            'jadwal_id' => 2,
-            'semester' => '4'
-        ]);
+        for($i=1; $i<=30; $i++)
+        {
+            KRS::create([
+                'mahasiswa_id' => rand(1,20),
+                'jadwal_id' => rand(1,15),
+                'semester' => rand(1,8),
+            ]);
+        }
     }
 }
